@@ -1,0 +1,6 @@
+									<div className="panel-heading">
+										<h3 className="panel-title">Find bugs between:</h3>
+									</div>
+									<div className="panel-body">
+										<input type="datetime-local" name="startdate"  disabled id="startDateInput"/> - <input type="datetime-local" name="enddate"  disabled id="endDateInput"/>
+									</div>	

@@ -1,0 +1,182 @@
+<html>
+	<head>
+	    <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Terrarium - Bug Tracking App</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		
+	</head>
+	<body>
+		<div class="Navigation" ref="Naviation">
+		
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						 </button>
+						 <a class="navbar-brand" href="#">Terrarium</a>
+					</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						  <ul class="nav navbar-nav">
+							<li><a href="#">Bug List</a></li>
+							<li><a href="#">Saved Filters</a></li>
+							<li><a href="#">Add Bug</a></li>
+						  </ul>
+						</div><!-- /.navbar-collapse -->
+					  </div><!-- /.container-fluid -->
+					</nav>
+
+			
+		</div>
+		
+		<div class="FilterSearch col-md-8 col-md-offset-2" ref="FilterSearch">
+			<div class="panel panel-default ">
+				<div class="panel-heading">
+					<h3 class="panel-title">Search & Filter</h3>
+				</div>
+				<div class="panel-body">
+					<div class="col-md-6">
+						<div class="input-group ">
+							<span class="input-group-addon">Find Bug</span>
+							<input type="text" class="form-control" placeholder="Search but ID and description" aria-describedby="basic-addon1">
+						</div>
+						<br />
+						<div class="input-group">
+							<span class="input-group-addon">Find User's Reports</span>
+							<input type="text" class="form-control" placeholder="Enter a username" aria-describedby="basic-addon1">
+						</div>
+					</div>
+					<div class="col-md-6">
+						
+							<div class="panel-heading">
+								<h3 class="panel-title">Find bugs between:</h3>
+							</div>
+							<div class="panel-body">
+								<input type="datetime-local" name="startdate"> - <input type="datetime-local" name="enddate">
+							</div>						
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-12">
+							<label for="sel1">High Priorty:</label>
+							<select class="form-control" id="sel1">
+								<option>All</option>
+								<option>True</option>
+								<option>False</option>
+							</select>
+						</div>
+						<div class="col-md-12">
+							<label for="sel1">Severity:</label>
+							<div class="input-group col-md-12">
+								<span class="input-group-addon"><input type="checkbox" aria-label="..."></span>
+								<input type="text" class="form-control" placeholder="High" aria-describedby="basic-addon1" disabled>
+								<span class="input-group-addon"><input type="checkbox" aria-label="..."></span>
+								<input type="text" class="form-control" placeholder="Medium" aria-describedby="basic-addon1" disabled>
+								<span class="input-group-addon"><input type="checkbox" aria-label="..."></span>
+								<input type="text" class="form-control" placeholder="Low" aria-describedby="basic-addon1" disabled>
+								
+							</div>
+
+
+						</div>
+					</div>
+					<div class="col-md-6">
+					<br />
+					<br />
+						<label for="sel1">Save this search:</label>
+						<div class="input-group col-md-12">
+							<input type="text" class="form-control" placeholder="Enter a name for the search" aria-describedby="basic-addon1">
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default">Save</button>
+							</span>
+						</div>
+					</div>
+				
+				
+				</div>
+			</div>
+		</div>
+		<div class="ColumnHeader col-md-8 col-md-offset-2" ref="ColumnHeader">
+		<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Ordering:</h3>
+				</div>
+				<div class="panel-body row">
+					<button type="button" class="btn btn-default col-md-2">ID</button>
+					<button type="button" class="btn btn-default col-md-2">Date</button>
+					<button type="button" class="btn btn-default col-md-2">Priority</button>
+					<button type="button" class="btn btn-default col-md-2">Severity</button>
+					<button type="button" class="btn btn-default col-md-2">Reporter</button>
+					<button type="button" class="btn btn-default col-md-2">Assigned</button>
+				</div>
+			</div>
+		</div>
+		<div class="BugInformation col-md-8 col-md-offset-2" id="BUG-00001" ref="BUG-00001">
+			<div class="panel panel-default container-fluid">
+				<div class="panel-heading row">
+					<div class="col-md-2">ID: BUG-00001</div>
+					<div class="col-md-2">Date: 03/07/2017 11:15</div>
+					<div class="col-md-2">Priority: High</div>
+					<div class="col-md-2">Severity: Medium</div>
+					<div class="col-md-2">Reporter: QAC</div>
+					<div class="col-md-2">Assigned: Un-assigned</div>
+				</div>
+				<div class="panel-body">
+					<label for="sel1">Summary:</label>
+					<span>
+						Search function doesn't like special characters
+					</span>	
+				</div>
+			</div>
+		</div>
+		<div class="BugInformation col-md-8 col-md-offset-2" id="ISSUE-00001" ref="ISSUE-00001">
+			<div class="panel panel-default container-fluid">
+				<div class="panel-heading row">
+					<div class="col-md-2">ID: ISSUE-00001</div>
+					<div class="col-md-2">Date: 04/05/2017 09:23</div>
+					<div class="col-md-2">Priority: High</div>
+					<div class="col-md-2">Severity: Medium</div>
+					<div class="col-md-2">Reporter: QAC</div>
+					<div class="col-md-2">Assigned: Un-assigned</div>
+				</div>
+				<div class="panel-body">
+					<label for="sel1">Summary:</label>
+					<span>
+						The food in the fridge isn't cold
+					</span>
+						
+				</div>
+			</div>
+		</div>
+		<div class="BugInformation col-md-8 col-md-offset-2" id="ISSUE-00002" ref="ISSUE-00002">
+			<div class="panel panel-default container-fluid">
+				<div class="panel-heading row">
+					<div class="col-md-2">ID: ISSUE-00002</div>
+					<div class="col-md-2">Date: 01/06/2017 10:54</div>
+					<div class="col-md-2">Priority: Normal</div>
+					<div class="col-md-2">Severity: Low</div>
+					<div class="col-md-2">Reporter: Elliott</div>
+					<div class="col-md-2">Assigned: Jake</div>
+				</div>
+				<div class="panel-body">
+					<label for="sel1">Summary:</label>
+					<span>
+						The pool table is slanted
+					</span>
+						
+				</div>
+			</div>
+		</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</body>
+</html>

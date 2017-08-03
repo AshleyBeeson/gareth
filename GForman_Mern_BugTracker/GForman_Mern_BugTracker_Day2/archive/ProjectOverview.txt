@@ -1,0 +1,110 @@
+This document is intended to keep a record of my decision making process throughout all stages.
+
+programs/applications and version numbers:
+Node - v6.11.1 for Windows x64
+
+From node: Karma & Webpack installed globally
+
+DAY 1:
+
+Bug tracking tool: Chose the name of Terrarium for app, as it's where you'd keep pet insects.
+Initial pass of project:
+
+Understanding initial requirements, analysing sample data.
+
+Saw one data type to be enum, suspected not supported by Mongo. Websearch seemed to confirm. A further search for enum options with regards to mongoose say that mongoose does support this as a validator, so may be used. 
+Reason for considering/checking Mongoose is prior knowledge of using Mongoose to allow react app to interact with MongoDB.
+
+On first assessment other requirements seem achievable also.
+
+For wireframes initial thoughts are to have:
+- an overall page/view that lists a summary of all bugs, and from here provide the ability to filter etc.
+- another page/view to display the details of a bug, also display all the actions associated with it. Ability to add action on this page
+- a page/view for adding bugs
+- a page listing search/filter history
+
+
+Inital wireframe completed - Layout for main bug report listing page with some sample data as copied from json file.
+Due to time constraints, next step before producing following wireframes will be to develop tests for this and get basic application framework in place, as my automated test setup runs alongside this.
+For testing I will be using Karama as a test runner for Jasmine tests, as I have previously researched and successfully implemented an automated configuration to run alongside development.
+As my Jasmine tests will be importing react components to do component testing, will be putting static html into components to define initial tests, before implementing dynamic elements
+
+Set up minimal Express server.Moved the static HTML from a HTML file into the framework of a single page React app.
+Everything outside of the body, plus script imports inside body, placed into index.html
+Elements of bug list split into individual components as boxed in wireframe, and static html moved to render function of each
+Currently rendering out a page through react running on the express server. Ready to define tests.
+
+As initial dynamic information will be updating the logged issues/bugs, will initially define test for BugListItem component
+
+Test built for static version of BugItemList, all tests passing. As component tests are now ready, will move to implement dynamic elements of component.
+(see archive\tdd_firsttest)
+
+BugListItem component developed to pass tests, thus meeting level required for implementation.
+(see archive\tdd_firstdynamic)
+To test this further will now expand project to pull information from a datasource (ideally MongoDB) rather than from sample data hardcoded to the component test.
+
+Flux store implemented to hold information from database, and mongoose implemented within express and called in flux store to populate the store from the database.
+(see archive\flux)
+
+Next step to build some tests for BugList component and test it against the full data provided in json rather than a document for the BugListItem component test
+Will require temporarily commenting out the DB access to run off test props.
+
+Test running on data temporarly passed through props were successful.
+(see archive\tdd_bugListWithoutDB)
+
+Next step to enable DB to see if information looks the same. May need to alter tests to implement a wait, as takes a very short amount of time to load information from DB to store.
+
+Unable to figure out how to make a jasmine test wait, so removing testing of BugList from test runner for now, as it now runs from DB. May attempt to reimplemnt later on, time permitting.
+
+Next step is to create a view for bug details and actions for that bug, as without this the full information that is currently stored is not accessible.
+
+Bug details view completed and working, and shows all actions for an individual bug. This element was not created test driven due to tests not working due needing to wait for DB load.
+
+Now that all information is being output, will attempt to research implementing waits in to jasmine tests, if possible then 
+
+Further investigation has shown the done() functionality of jasmine 2.0 can used to create the required delays, however there is then also an issue with it getting a 404 error from trying to access mongoose through the API.
+At this point enough time has been expended on running tests on DB dependant functionality. However I will still attempt to provided TDD where possible.
+
+Implemented first pass of search functionality, currently has the ability to enter a search string, and have it be evaluated against issueId, summary & description. 
+Description isn't currently shown amongst the results so may lead to some confussion. Future action will be to remove description from search, or implement a way to display the description only if it's the reason for a search result being returned.
+
+DAY 2:
+
+After some consideration, I'm going to temporarily switch the flux store to run off of fixed data, rather than pull from the database.
+This should enable the options for some testing with regards to further search and sort functionality. 
+Once this is completed the next step should be updating information in the database, so will move back to using the database.
+
+{commented out in terrarium.jsx, hard coded data placed in the flux store constructor}
+
+Successfully redirected to static data, tests for BugList are now running and passing successfully.
+
+Successfully built a test that simulates input of text data for the bug search, and validates correct results back.
+Can now proceed to build tests of other search inputs then develop them in a TDD manner.
+
+Have created tests for intergrating the search of both text search for users, and using checkboxes to select severity.
+Then proceeded to implement functionality and currently all tests pass.
+
+Will now leave priority and date as disabled and move on to sorting/ordering functionality.
+
+Initial sorted completed and passing tests.
+
+Ordering/sorting for all categories is now in place, however tests are not present for all.
+At present I feel the functionality of the search & sort features, although not complete, are to a reasonable level.
+As such I now intend to switch back to using the database rather than hard coded data. Will create an archived copy to demonstrate tests that have been made completing
+(see archive\tdd_LastTestsRunningBeforeBackToDB)
+
+Next I will attempt to insert an additional bug in to the database. Initially I will do this through hardcoding a bug object to pass, once this is done I can see about taking inputs from a pageview.
+
+Successfully added bug to database with test data, will now attempt to allow entry of a bug via form data.
+
+Entry of a new bug via form has been completed.
+As this would be very similar to editing a bug, have also created a bug editing page. Essentially the same page but pre-loads the form with values of an existing bug, and updates DB rather than add new.
+With this functionality now in place, it should only be small matter to be able to add new actions to a bug.
+
+New actions for bugs were added successfully. Upon completion of this there was no feedback for the user beyond console output that things had been added.
+Proceeded to implement feedback for all three data edit/entry tasks currently in place.
+
+
+
+
+

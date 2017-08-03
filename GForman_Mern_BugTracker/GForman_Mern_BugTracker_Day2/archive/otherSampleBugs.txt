@@ -1,0 +1,40 @@
+Other Sample Bugs
+
+				<div className="BugInformation col-md-8 col-md-offset-2" id="ISSUE-00001" ref="ISSUE-00001">
+					<div className="panel panel-default container-fluid">
+						<div className="panel-heading row">
+							<div className="col-md-2">ID: ISSUE-00001</div>
+							<div className="col-md-2">Date: 04/05/2017 09:23</div>
+							<div className="col-md-2">Priority: High</div>
+							<div className="col-md-2">Severity: Medium</div>
+							<div className="col-md-2">Reporter: QAC</div>
+							<div className="col-md-2">Assigned: Un-assigned</div>
+						</div>
+						<div className="panel-body">
+							<label for="sel1">Summary:</label>
+							<span>
+								The food in the fridge isn't cold
+							</span>
+								
+						</div>
+					</div>
+				</div>
+				<div className="BugInformation col-md-8 col-md-offset-2" id="ISSUE-00002" ref="ISSUE-00002">
+					<div className="panel panel-default container-fluid">
+						<div className="panel-heading row">
+							<div className="col-md-2">ID: ISSUE-00002</div>
+							<div className="col-md-2">Date: 01/06/2017 10:54</div>
+							<div className="col-md-2">Priority: Normal</div>
+							<div className="col-md-2">Severity: Low</div>
+							<div className="col-md-2">Reporter: Elliott</div>
+							<div className="col-md-2">Assigned: Jake</div>
+						</div>
+						<div className="panel-body">
+							<label for="sel1">Summary:</label>
+							<span>
+								The pool table is slanted
+							</span>
+								
+						</div>
+					</div>
+				</div>
